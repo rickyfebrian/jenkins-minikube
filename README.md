@@ -2,13 +2,13 @@
 
 ![Screenshot from 2023-05-15 00-18-33](https://github.com/rickyfebrian/jenkins-minikube/assets/46195764/395da636-f1ed-4831-8034-4e8cc601cdb0)
 
-1. Clone github 
+1. Clone github https://github.com/savanihd/Laravel-8-CRUD
 2. Buat Dockerfile
 
 Buat pipeline build dan push
 
-3. Pipeline build >> akses ke vm docker kemudian build docker menggunakan pipeline jenkins
-4. Pipeline push >> akses ke vm docker kemudian push ke dockerhub menggunakan pipeline jenkins
+3. Pipeline build >> akses ke vm docker kemudian build docker dengan Dockerfile menggunakan pipeline jenkins
+4. Pipeline push >> akses ke vm docker kemudian push ke dockerhub https://hub.docker.com/u/rickyfebrian menggunakan pipeline jenkins
 
 ![Screenshot from 2023-05-15 00-36-39](https://github.com/rickyfebrian/jenkins-minikube/assets/46195764/73f609fa-ec53-464c-ab93-905f93396b1d)
 
