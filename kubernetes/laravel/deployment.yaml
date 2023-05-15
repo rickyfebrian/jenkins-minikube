@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laravel-app
+  template:
+    metadata:
+      labels:
+        app: laravel-app
+    spec:
+      containers:
+        - name: laravel-app
+          image: rickyfebrian/laravel_baru:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: APP_KEY
+              value: <your_app_key>
+            - name: DB_HOST
+              value: 192.168.49.2
+            - name: DB_DATABASE
+              value: mysql
+            - name: DB_USERNAME
+              value: root
+            - name: DB_PASSWORD
+              value: yourpassword

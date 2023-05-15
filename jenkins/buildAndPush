@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('SSH to VM build') {
+            steps {
+                script {
+                    def remote = [:]
+                    remote.name = 'vm'
+                    remote.host = '192.168.122.206'
+                    remote.user = 'oce'
+                    remote.password = 'password'
+                    remote.allowAnyHosts = true
+                    stage('build') {
+                        sshCommand remote: remote, command: "docker build -t rickyfebrian/laravel_baru baru/Laravel-8-CRUD/"
+                    }
+                }
+            }
+        }
+
+
+        stage('SSH to VM push') {
+            steps {
+                script {
+                    def remote = [:]
+                    remote.name = 'vm'
+                    remote.host = '192.168.122.206'
+                    remote.user = 'oce'
+                    remote.password = 'password'
+                    remote.allowAnyHosts = true
+                    stage('push') {
+                        sshCommand remote: remote, command: "docker login -u $username -p $password"
+                        sshCommand remote: remote, command: "docker push rickyfebrian/laravel_baru:latest"
+                    }
+                }
+            }
+        }   
+    }
+}
+
